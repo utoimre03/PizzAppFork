@@ -3,9 +3,10 @@ package pizzapp;
 public class PizzApp extends javax.swing.JFrame {
     
      int alapAr = -1; //-1 jelentése: nincs ára a pizzánakint extrak
-     int extrak
-     int db
-    double meretSzorzo = 1; //32 cm
+     int extrak;
+     int db;
+     double meretSzorzo = 1; //32 cm
+     double vegsoAr;
     
     
     public PizzApp() {
@@ -22,12 +23,15 @@ public class PizzApp extends javax.swing.JFrame {
         int extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
-        double vegsoAr = alapAr * meretSzorzo + extrak;
+        szamolasEsKiiras();
+    }
+
+    private void szamolasEsKiiras() {
+        vegsoAr = alapAr * meretSzorzo + extrak;
         vegsoAr *= db; //vegsoAr = vegsoAr * db;
         lblAr.setText(vegsoAr + "");
     }
-
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -285,7 +289,7 @@ public class PizzApp extends javax.swing.JFrame {
         int extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
-        double vegsoAr = alapAr * meretSzorzo + extrak;
+        vegsoAr = alapAr * meretSzorzo + extrak;
         vegsoAr *= db; //vegsoAr = vegsoAr * db;
         lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
