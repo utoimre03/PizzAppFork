@@ -304,16 +304,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="sajt"/>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chbSajtItemStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chbHagyma">
           <Properties>
             <Property name="text" type="java.lang.String" value="hagyma"/>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chbHagymaItemStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="chbAnanasz">
           <Properties>
             <Property name="text" type="java.lang.String" value="anan&#xe1;sz"/>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="chbAnanaszItemStateChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
