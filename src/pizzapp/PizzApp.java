@@ -12,6 +12,8 @@ public class PizzApp extends javax.swing.JFrame {
     public PizzApp() {
         initComponents();
         
+        dbSzamolas();
+        
         alapAr = 1750;
         
         meretSzorzo = 1;
@@ -27,9 +29,7 @@ public class PizzApp extends javax.swing.JFrame {
     }
 
     private void szamolasEsKiiras() {
-        vegsoAr = alapAr * meretSzorzo + extrak;
-        vegsoAr *= db; //vegsoAr = vegsoAr * db;
-        lblAr.setText(vegsoAr + "");
+        szamolasEsKiiras(db);
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -123,9 +123,14 @@ public class PizzApp extends javax.swing.JFrame {
         lblFizFt.setText("Ft");
 
         lblAr.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblAr.setText("0");
+        lblAr.setText("1750");
 
         numDb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        numDb.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numDbStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFizetendoLayout = new javax.swing.GroupLayout(pnlFizetendo);
         pnlFizetendo.setLayout(pnlFizetendoLayout);
@@ -289,22 +294,35 @@ public class PizzApp extends javax.swing.JFrame {
         int extra3 = 0;
         extrak = extra1 + extra2 + extra3;
         
-        vegsoAr = alapAr * meretSzorzo + extrak;
-        vegsoAr *= db; //vegsoAr = vegsoAr * db;
-        lblAr.setText(vegsoAr + "");
+        szamolasEsKiiras(db);
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+    private void dbSzamolas() {
+        String pizzaDb = numDb.getValue() + "";
+        db = Integer.parseInt(pizzaDb);
+    }
+    
+    private void szamolasEsKiiras(int db1) {
+        vegsoAr = alapAr * meretSzorzo + extrak;
+        vegsoAr *= db1; //vegsoAr = vegsoAr * db;
+        //vegsoAr = vegsoAr * db;
+        lblAr.setText(vegsoAr + "");
+    }
 
     private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
         meretSzorzo = .75;
         
-        double vegsoAr = alapAr * meretSzorzo + extrak;
-        vegsoAr *= db; //vegsoAr = vegsoAr * db;
-        lblAr.setText(vegsoAr + "");
+        szamolasEsKiiras(db);
+        //vegsoAr = vegsoAr * db;
     }//GEN-LAST:event_rdbMeret25ItemStateChanged
 
     private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
         meretSzorzo = 1;
+        szamolasEsKiiras(db);
     }//GEN-LAST:event_rdbMeret32ItemStateChanged
+
+    private void numDbStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numDbStateChanged
+        szamolasEsKiiras(db);
+    }//GEN-LAST:event_numDbStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -360,4 +378,6 @@ public class PizzApp extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdbMeret32;
     private javax.swing.JTextArea txaOsszesito;
     // End of variables declaration//GEN-END:variables
+
+    
 }
