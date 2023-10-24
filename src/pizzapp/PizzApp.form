@@ -118,7 +118,6 @@
             <StringItem index="3" value="Diavola"/>
           </StringArray>
         </Property>
-        <Property name="selectedIndex" type="int" value="2"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdValaszthatoPizzakActionPerformed"/>

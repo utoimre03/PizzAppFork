@@ -55,7 +55,6 @@ public class PizzApp extends javax.swing.JFrame {
         lblValaszthato.setText("Választható pizza:");
 
         cmdValaszthatoPizzak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Margherita", "Hawaii", "Songoku", "Diavola" }));
-        cmdValaszthatoPizzak.setSelectedIndex(2);
         cmdValaszthatoPizzak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdValaszthatoPizzakActionPerformed(evt);
@@ -246,7 +245,33 @@ public class PizzApp extends javax.swing.JFrame {
     }//GEN-LAST:event_rdbMeret32ActionPerformed
 
     private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
-        // TODO add your handling code here:
+        //melyik a választott pizza indexe
+        int pizzaIndex = cmdValaszthatoPizzak.getSelectedIndex();
+        
+        //választott pizza alapára:
+        int alapAr = -1; //-1 jelentése: nincs ára a pizzának
+        if(pizzaIndex == 0){
+            alapAr = 1580;
+        }else if(pizzaIndex == 1){
+            alapAr = 1680;
+        }else if(pizzaIndex == 2){
+            alapAr = 1750;
+        }else if(pizzaIndex == 3){
+            alapAr = 2100;
+        }
+        
+        double meretSzorzo = 1;
+        
+        int db = 1;
+        
+        int extra1 = 0;
+        int extra2 = 0;
+        int extra3 = 0;
+        int extrak = extra1 + extra2 + extra3;
+        
+        double vegsoAr = alapAr * meretSzorzo + extrak;
+        vegsoAr *= db; //vegsoAr = vegsoAr * db;
+        lblAr.setText(vegsoAr + "");
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     public static void main(String args[]) {
